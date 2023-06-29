@@ -26,7 +26,6 @@ const Profile = () => {
   };
   const viewBtn = (data) => {
     console.log(data);
-    // dispatch(setDataId(data?.CV.id))
     setData(data?.CV);
     setTemplateNo(data?.Template);
     setDetails(true);
@@ -38,12 +37,13 @@ const Profile = () => {
   };
   const cvData1 = useSelector((state) => state.user.Resumes);
   const number = useSelector((state) => state.authentication.number);
+  console.log(cvData1,number)
   return (
     <>
       <div className="profileContainer">
         <div className="proContainer">
           {cvData1?.map((item) => {
-            if (item.CV.phone1 === number) {
+            if (item.CreaterId === number) {
               return (
                 <>
                   <div className="displaying">

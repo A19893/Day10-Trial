@@ -32,6 +32,7 @@ const formItemLayout = {
   },
 };
 const Forms = () => {
+  const createrid=useSelector((state)=>state.authentication.number)
   const template = useSelector((state) => state.user.TemplateNo);
   const isDataDraft = useSelector((state) => state.user.DraftData);
   const UserData = useSelector((state) => state.user.LoggedinUserData);
@@ -139,7 +140,7 @@ const Forms = () => {
       openNotification();
     } else {
       dispatch(addTemplate(template));
-      dispatch(addData({ templateNo: template, cvData: data }));
+      dispatch(addData({ templateNo: template, cvData: data,createrid: createrid}));
       dispatch(removeUserId());
       navigate("/profile");
     }
@@ -156,7 +157,7 @@ const Forms = () => {
       data.status = "Draft";
       dispatch(draftFalse());
       dispatch(addTemplate(template));
-      dispatch(editData({ templateNo: template, cvData: data }));
+      dispatch(editData({ templateNo: template, cvData: data,createrid: createrid}));
       navigate("/profile");
     }
   };

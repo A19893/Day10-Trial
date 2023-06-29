@@ -47,6 +47,7 @@ export const UserSlice=createSlice({
                 state.Resumes.push({
                     CV:action.payload.cvData,
                     Template:action.payload.templateNo,
+                    CreaterId:action.payload.createrid
                 })
                 state.DraftUserid=null;
             }
@@ -97,7 +98,8 @@ export const UserSlice=createSlice({
             else{
                 state.Resumes.push({
                     CV:action.payload.cvData,
-                    Template:action.payload.templateNo
+                    Template:action.payload.templateNo,
+                    CreaterId:action.payload.createrid
                 })
             }
             state.DraftUserid=null;
